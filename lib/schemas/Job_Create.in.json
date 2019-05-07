@@ -1,0 +1,68 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceGroupName": {
+            "required": true,
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 90,
+            "pattern": "^[-\\w\\._]+$"
+        },
+        "automationAccountName": {
+            "required": true,
+            "type": "string"
+        },
+        "jobName": {
+            "required": true,
+            "type": "string"
+        },
+        "clientRequestId": {
+            "required": false,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The parameters supplied to the create job operation.",
+            "properties": {
+                "properties": {
+                    "description": "Gets or sets the list of job properties.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "parameters": {
+                            "additionalProperties": {
+                                "type": "string"
+                            },
+                            "description": "Gets or sets the parameters of the job.",
+                            "type": "object"
+                        },
+                        "runOn": {
+                            "description": "Gets or sets the runOn which specifies the group name where the job is to be executed.",
+                            "type": "string"
+                        },
+                        "runbook": {
+                            "description": "Gets or sets the runbook.",
+                            "properties": {
+                                "name": {
+                                    "description": "Gets or sets the name of the runbook.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "required": [
+                "properties"
+            ],
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
